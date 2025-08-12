@@ -1,9 +1,9 @@
 {
     "$schema": "https://openapi.vercel.sh/microfrontends.json",
     "applications": {
-        "remote-components-weather-app": {
+        "remote-components-weather-web": {
             "development": {
-                "fallback": "remote-components-weather-app.vercel.app"
+                "fallback": "remote-components-weather-web.vercel.app"
             }
         },
         "remote-components-weather-header": {
