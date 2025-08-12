@@ -1,0 +1,20 @@
+{
+    "$schema": "https://openapi.vercel.sh/microfrontends.json",
+    "applications": {
+        "remote-components-weather-app": {
+            "development": {
+                "fallback": "remote-components-weather-app.vercel.app"
+            }
+        },
+        "remote-components-weather-header": {
+            "routing": [
+                {
+                    "paths": [
+                        "/header",
+                        "/header/:path*"
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "remote-components-weather",
+    "private": true,
+    "version": "0.0.0",
+    "description": "A Turborepo monorepo for remote components weather applications",
+    "scripts": {
+        "build": "turbo build",
+        "dev": "turbo dev",
+        "lint": "turbo lint",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "type-check": "turbo type-check",
+        "clean": "turbo clean",
+        "test": "turbo test"
+    },
+    "devDependencies": {
+        "prettier": "^3.4.2",
+        "turbo": "^2.3.4",
+        "typescript": "^5.7.2"
+    },
+    "packageManager": "pnpm@10.14.0",
+    "engines": {
+        "node": ">=20.0.0"
+    }
+}
