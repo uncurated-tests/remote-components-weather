@@ -133,7 +133,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      <RemoteComponent src="/_/header" />
+      <RemoteComponent src="/components/header" />
 
       {/* Current Weather Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 py-16">

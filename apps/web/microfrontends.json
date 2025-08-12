@@ -10,8 +10,8 @@
             "routing": [
                 {
                     "paths": [
-                        "/_/header",
-                        "/_/header/:path*"
+                        "/components/header",
+                        "/components/header/:path*"
                     ]
                 }
             ]
