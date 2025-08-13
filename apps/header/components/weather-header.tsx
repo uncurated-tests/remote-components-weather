@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "@vercel/microfrontends/next/client";
 import { Button } from "@/components/ui/button";
 import {
@@ -113,6 +113,7 @@ const temperatureUnits = [
 ];
 
 export function WeatherHeader() {
+  const headerRef = useRef<HTMLElement>(null);
   const [selectedCity, setSelectedCity] = useState(cities[0]);
   const [citySearchOpen, setCitySearchOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -122,6 +123,17 @@ export function WeatherHeader() {
   const [cityFavorites, setCityFavorites] = useState(
     cities.map((city) => ({ id: city.id, isFavorite: city.isFavorite }))
   );
+
+  useEffect(() => {
+    if (headerRef.current) {
+      let current = headerRef.current;
+      while (current && !current.shadowRoot) {
+        current = current.parentNode?.host || current.parentNode;
+      }
+      const shadowRoot = current?.shadowRoot;
+      console.log("Header shadowRoot:", shadowRoot);
+    }
+  }, [headerRef.current]);
 
   const toggleFavorite = (cityId: number) => {
     setCityFavorites((prev) =>
@@ -143,7 +155,10 @@ export function WeatherHeader() {
   return (
     <TooltipProvider>
       {/* Simple header with light/dark theme */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header
+        ref={headerRef}
+        className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      >
         <div className="flex h-16 items-center justify-between px-6 lg:px-12 xl:px-16 w-full gap-4">
           {/* Enhanced Logo with custom SVG */}
           <div className="flex items-center space-x-3 flex-shrink-0">
