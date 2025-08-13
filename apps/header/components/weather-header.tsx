@@ -40,6 +40,12 @@ import {
   Thermometer,
 } from "lucide-react";
 import { PopoverPortal } from "@radix-ui/react-popover";
+import {
+  useParams,
+  usePathname,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 
 // Mock data for cities with weather info
 const cities = [
@@ -114,6 +120,14 @@ const temperatureUnits = [
 ];
 
 export function WeatherHeader() {
+  const searchParams = useSearchParams();
+  console.log("searchParams", searchParams?.toString());
+  const pathname = usePathname();
+  console.log("pathname", pathname);
+  const params = useParams();
+  console.log("params", params);
+  // const router = useRouter();
+  // console.log("router", router.query);
   const headerRef = useRef<HTMLElement>(null);
   const [selectedCity, setSelectedCity] = useState(cities[0]);
   const [citySearchOpen, setCitySearchOpen] = useState(false);
