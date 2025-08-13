@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="200" height="150">
+  <!-- Cloud -->
+  <path d="M50 80 C30 80, 20 60, 40 50 C40 30, 70 20, 90 40 C110 20, 140 30, 140 50 C160 50, 170 70, 150 80 Z" 
+        fill="#E5E7EB" 
+        stroke="#9CA3AF" 
+        stroke-width="2"/>
+  
+  <!-- Lightning bolt -->
+  <path d="M85 65 L95 65 L88 85 L98 85 L85 110 L75 95 L82 95 L75 75 Z" 
+        fill="#FCD34D" 
+        stroke="#F59E0B" 
+        stroke-width="1.5"/>
+  
+  <!-- Lightning glow effect -->
+  <path d="M85 65 L95 65 L88 85 L98 85 L85 110 L75 95 L82 95 L75 75 Z" 
+        fill="none" 
+        stroke="#FBBF24" 
+        stroke-width="3" 
+        opacity="0.6"/>
+</svg>
