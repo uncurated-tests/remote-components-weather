@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev --turbo --port $(microfrontends port)"
+    "dev": "next dev --port $(microfrontends port)"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

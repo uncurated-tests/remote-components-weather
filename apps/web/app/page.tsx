@@ -132,43 +132,65 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <RemoteComponent src="/components/header" />
 
       {/* Current Weather Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 py-16">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 dark:from-slate-800 dark:via-slate-700 dark:to-slate-800 py-16">
+        <div className="absolute inset-0 bg-black/20 dark:bg-black/40"></div>
         <div className="relative max-w-4xl mx-auto px-4">
-          <div className="backdrop-blur-md bg-white/10 rounded-3xl p-8 border border-white/20 shadow-2xl">
+          <div className="backdrop-blur-md bg-white/10 dark:bg-black/20 rounded-3xl p-8 border border-white/20 dark:border-white/10 shadow-2xl">
             <div className="text-center mb-8">
               {/* Changed text to white and condition to Sunny */}
-              <div className="text-white/90 text-xl mb-2">New York, NY</div>
+              <div className="text-white/90 dark:text-white/80 text-xl mb-2">
+                New York, NY
+              </div>
               <div className="flex items-center justify-center gap-4 mb-4">
                 <span className="text-8xl">☀️</span>
-                <div className="text-white text-9xl font-bold">72°</div>
+                <div className="text-white dark:text-white text-9xl font-bold">
+                  72°
+                </div>
               </div>
-              <div className="text-white text-2xl font-medium">Sunny</div>
-              <div className="text-white/70 text-sm mt-2">
+              <div className="text-white dark:text-white text-2xl font-medium">
+                Sunny
+              </div>
+              <div className="text-white/70 dark:text-white/60 text-sm mt-2">
                 Last updated 2 minutes ago
               </div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-white/70 text-sm">Feels Like</div>
-                <div className="text-white text-2xl font-semibold">75°</div>
+                <div className="text-white/70 dark:text-white/60 text-sm">
+                  Feels Like
+                </div>
+                <div className="text-white dark:text-white text-2xl font-semibold">
+                  75°
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-white/70 text-sm">Humidity</div>
-                <div className="text-white text-2xl font-semibold">68%</div>
+                <div className="text-white/70 dark:text-white/60 text-sm">
+                  Humidity
+                </div>
+                <div className="text-white dark:text-white text-2xl font-semibold">
+                  68%
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-white/70 text-sm">Wind Speed</div>
-                <div className="text-white text-2xl font-semibold">12 mph</div>
+                <div className="text-white/70 dark:text-white/60 text-sm">
+                  Wind Speed
+                </div>
+                <div className="text-white dark:text-white text-2xl font-semibold">
+                  12 mph
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-white/70 text-sm">Pressure</div>
-                <div className="text-white text-2xl font-semibold">30.12"</div>
+                <div className="text-white/70 dark:text-white/60 text-sm">
+                  Pressure
+                </div>
+                <div className="text-white dark:text-white text-2xl font-semibold">
+                  30.12"
+                </div>
               </div>
             </div>
           </div>
@@ -179,7 +201,7 @@ export default function HomePage() {
       <main className="container mx-auto px-4 py-8">
         {/* Enhanced Featured Article */}
         <section className="mb-12">
-          <Card className="overflow-hidden shadow-2xl border-0 bg-gradient-to-r from-white to-blue-50/50 backdrop-blur-sm">
+          <Card className="overflow-hidden shadow-2xl border-0 bg-gradient-to-r from-white to-blue-50/50 dark:from-slate-800 dark:to-slate-700/50 backdrop-blur-sm">
             <div className="md:flex">
               <div className="md:w-1/2 relative overflow-hidden">
                 <img
@@ -187,7 +209,7 @@ export default function HomePage() {
                   alt={featuredArticle.title}
                   className="w-full h-64 md:h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/40"></div>
               </div>
               <div className="md:w-1/2 p-8">
                 <div className="flex items-center gap-2 mb-4">
@@ -198,13 +220,13 @@ export default function HomePage() {
                     Featured
                   </Badge>
                 </div>
-                <h1 className="text-2xl md:text-3xl font-bold mb-4 leading-tight bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                <h1 className="text-2xl md:text-3xl font-bold mb-4 leading-tight bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
                   {featuredArticle.title}
                 </h1>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">
                   {featuredArticle.excerpt}
                 </p>
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
+                <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-6">
                   <div className="flex items-center gap-1">
                     <User className="w-4 h-4" />
                     {featuredArticle.author}
@@ -225,7 +247,7 @@ export default function HomePage() {
                   <Button
                     variant="outline"
                     size="icon"
-                    className="hover:bg-gray-50 transition-colors duration-300 bg-transparent"
+                    className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300 bg-transparent"
                   >
                     <Share2 className="w-4 h-4" />
                   </Button>
@@ -240,7 +262,7 @@ export default function HomePage() {
           <div className="lg:col-span-3">
             {/* Enhanced Categories */}
             <section className="mb-8">
-              <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
                 Browse by Category
               </h2>
               <div className="flex flex-wrap gap-3">
@@ -248,7 +270,7 @@ export default function HomePage() {
                   <Button
                     key={category.name}
                     variant="outline"
-                    className="h-auto p-4 flex-col items-start bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-white hover:shadow-lg transition-all duration-300"
+                    className="h-auto p-4 flex-col items-start bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-gray-200 dark:border-slate-600 hover:bg-white dark:hover:bg-slate-700 hover:shadow-lg transition-all duration-300"
                   >
                     <div className="flex items-center gap-2 w-full">
                       <div
@@ -256,7 +278,7 @@ export default function HomePage() {
                       />
                       <span className="font-medium">{category.name}</span>
                     </div>
-                    <span className="text-xs text-gray-500 mt-1">
+                    <span className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                       {category.count} articles
                     </span>
                   </Button>
@@ -266,14 +288,14 @@ export default function HomePage() {
 
             {/* Enhanced Latest News Grid */}
             <section>
-              <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
                 Latest News
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {newsArticles.map((article) => (
                   <Card
                     key={article.id}
-                    className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:-translate-y-1"
+                    className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm hover:-translate-y-1"
                   >
                     <div className="aspect-video overflow-hidden relative">
                       <img
@@ -281,7 +303,7 @@ export default function HomePage() {
                         alt={article.title}
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent dark:from-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <CardHeader className="pb-2">
                       <div className="flex items-center gap-2 mb-2">
@@ -289,15 +311,15 @@ export default function HomePage() {
                           {article.category}
                         </Badge>
                       </div>
-                      <CardTitle className="text-lg leading-tight hover:text-blue-600 cursor-pointer transition-colors duration-300">
+                      <CardTitle className="text-lg leading-tight hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer transition-colors duration-300 dark:text-white">
                         {article.title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                      <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
                         {article.excerpt}
                       </p>
-                      <div className="flex items-center justify-between text-xs text-gray-500">
+                      <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
                         <div className="flex items-center gap-3">
                           <div className="flex items-center gap-1">
                             <User className="w-3 h-3" />
@@ -326,9 +348,9 @@ export default function HomePage() {
           {/* Enhanced Sidebar */}
           <div className="lg:col-span-1">
             {/* Enhanced Trending Articles */}
-            <Card className="mb-6 border-0 bg-white/80 backdrop-blur-sm shadow-xl">
+            <Card className="mb-6 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm shadow-xl">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                <CardTitle className="flex items-center gap-2 bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
                   <TrendingUp className="w-5 h-5 text-emerald-500" />
                   Trending Now
                 </CardTitle>
@@ -337,12 +359,12 @@ export default function HomePage() {
                 {trendingArticles.map((article, index) => (
                   <div
                     key={index}
-                    className="border-b border-gray-100 last:border-0 pb-3 last:pb-0 hover:bg-gray-50/50 p-2 rounded-lg transition-colors duration-300"
+                    className="border-b border-gray-100 dark:border-slate-600 last:border-0 pb-3 last:pb-0 hover:bg-gray-50/50 dark:hover:bg-slate-700/50 p-2 rounded-lg transition-colors duration-300"
                   >
-                    <h4 className="font-medium text-sm leading-tight mb-2 hover:text-blue-600 cursor-pointer transition-colors duration-300">
+                    <h4 className="font-medium text-sm leading-tight mb-2 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer transition-colors duration-300 dark:text-white">
                       {article.title}
                     </h4>
-                    <div className="flex items-center gap-2 text-xs text-gray-500">
+                    <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
                       <span>{article.readTime}</span>
                       <div className="flex items-center gap-1">
                         <MessageCircle className="w-3 h-3" />
@@ -355,21 +377,21 @@ export default function HomePage() {
             </Card>
 
             {/* Enhanced Newsletter Signup */}
-            <Card className="mb-6 border-0 bg-gradient-to-br from-blue-50 to-indigo-100 shadow-xl">
+            <Card className="mb-6 border-0 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-700 shadow-xl">
               <CardHeader>
-                <CardTitle className="text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <CardTitle className="text-lg bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
                   Stay Updated
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                   Get the latest news delivered straight to your inbox.
                 </p>
                 <div className="space-y-3">
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/80 backdrop-blur-sm"
+                    className="w-full px-4 py-3 border border-gray-200 dark:border-slate-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/80 dark:bg-slate-700/80 backdrop-blur-sm dark:text-white"
                   />
                   <Button
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
@@ -382,30 +404,44 @@ export default function HomePage() {
             </Card>
 
             {/* Enhanced Quick Stats */}
-            <Card className="border-0 bg-white/80 backdrop-blur-sm shadow-xl">
+            <Card className="border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm shadow-xl">
               <CardHeader>
-                <CardTitle className="text-lg bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                <CardTitle className="text-lg bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
                   Today's Stats
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex justify-between items-center p-2 rounded-lg hover:bg-gray-50/50 transition-colors duration-300">
-                  <span className="text-sm text-gray-600">
+                <div className="flex justify-between items-center p-2 rounded-lg hover:bg-gray-50/50 dark:hover:bg-slate-700/50 transition-colors duration-300">
+                  <span className="text-sm text-gray-600 dark:text-gray-300">
                     Articles Published
                   </span>
-                  <span className="font-bold text-blue-600">47</span>
+                  <span className="font-bold text-blue-600 dark:text-blue-400">
+                    47
+                  </span>
                 </div>
-                <div className="flex justify-between items-center p-2 rounded-lg hover:bg-gray-50/50 transition-colors duration-300">
-                  <span className="text-sm text-gray-600">Total Readers</span>
-                  <span className="font-bold text-emerald-600">2.4M</span>
+                <div className="flex justify-between items-center p-2 rounded-lg hover:bg-gray-50/50 dark:hover:bg-slate-700/50 transition-colors duration-300">
+                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                    Total Readers
+                  </span>
+                  <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                    2.4M
+                  </span>
                 </div>
-                <div className="flex justify-between items-center p-2 rounded-lg hover:bg-gray-50/50 transition-colors duration-300">
-                  <span className="text-sm text-gray-600">Comments</span>
-                  <span className="font-bold text-purple-600">1,847</span>
+                <div className="flex justify-between items-center p-2 rounded-lg hover:bg-gray-50/50 dark:hover:bg-slate-700/50 transition-colors duration-300">
+                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                    Comments
+                  </span>
+                  <span className="font-bold text-purple-600 dark:text-purple-400">
+                    1,847
+                  </span>
                 </div>
-                <div className="flex justify-between items-center p-2 rounded-lg hover:bg-gray-50/50 transition-colors duration-300">
-                  <span className="text-sm text-gray-600">Shares</span>
-                  <span className="font-bold text-orange-600">892</span>
+                <div className="flex justify-between items-center p-2 rounded-lg hover:bg-gray-50/50 dark:hover:bg-slate-700/50 transition-colors duration-300">
+                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                    Shares
+                  </span>
+                  <span className="font-bold text-orange-600 dark:text-orange-400">
+                    892
+                  </span>
                 </div>
               </CardContent>
             </Card>
