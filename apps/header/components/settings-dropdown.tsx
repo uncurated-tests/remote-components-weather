@@ -10,25 +10,18 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Settings, ChevronDown, Globe, Thermometer } from "lucide-react";
 import { Language, TemperatureUnit } from "./types";
+import { languages, temperatureUnits } from "./data";
 
-interface SettingsDropdownProps {
-  languages: Language[];
-  temperatureUnits: TemperatureUnit[];
-  selectedLanguage: Language;
-  selectedTempUnit: TemperatureUnit;
-  onLanguageSelect: (language: Language) => void;
-  onTempUnitSelect: (unit: TemperatureUnit) => void;
-}
+interface SettingsDropdownProps {}
 
-export function SettingsDropdown({
-  languages,
-  temperatureUnits,
-  selectedLanguage,
-  selectedTempUnit,
-  onLanguageSelect,
-  onTempUnitSelect,
-}: SettingsDropdownProps) {
+export function SettingsDropdown({}: SettingsDropdownProps) {
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(
+    languages[0]
+  );
+  const [selectedTempUnit, setSelectedTempUnit] = useState<TemperatureUnit>(
+    temperatureUnits[0]
+  );
 
   return (
     <Popover open={settingsOpen} onOpenChange={setSettingsOpen}>
@@ -54,7 +47,7 @@ export function SettingsDropdown({
                     selectedLanguage.code === lang.code ? "default" : "ghost"
                   }
                   className="justify-start"
-                  onClick={() => onLanguageSelect(lang)}
+                  onClick={() => setSelectedLanguage(lang)}
                 >
                   <span className="mr-2">{lang.flag}</span>
                   {lang.name}
@@ -76,7 +69,7 @@ export function SettingsDropdown({
                     selectedTempUnit.code === unit.code ? "default" : "ghost"
                   }
                   className="justify-start"
-                  onClick={() => onTempUnitSelect(unit)}
+                  onClick={() => setSelectedTempUnit(unit)}
                 >
                   {unit.name}
                 </Button>

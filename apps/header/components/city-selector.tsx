@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
@@ -18,33 +18,51 @@ import {
 import { MapPin, Star, ChevronDown } from "lucide-react";
 import { PopoverPortal } from "@radix-ui/react-popover";
 import { City, CityFavorite } from "./types";
+import { useParams, usePathname, useSearchParams } from "next/navigation";
+import { cities } from "./data";
 
-interface CitySelectorProps {
-  cities: City[];
-  selectedCity: City;
-  onCitySelect: (city: City) => void;
-  cityFavorites: CityFavorite[];
-  onToggleFavorite: (cityId: number) => void;
-  headerRef: React.RefObject<HTMLElement | null>;
-}
-
-export function CitySelector({
-  cities,
-  selectedCity,
-  onCitySelect,
-  cityFavorites,
-  onToggleFavorite,
-  headerRef,
-}: CitySelectorProps) {
+export function CitySelector() {
+  const [selectedCity, setSelectedCity] = useState<City>(cities[0]);
   const [citySearchOpen, setCitySearchOpen] = useState(false);
+  const headerRef = useRef<HTMLDivElement | null>(null);
+  const [cityFavorites, setCityFavorites] = useState<CityFavorite[]>(
+    cities.map((city) => ({ id: city.id, isFavorite: city.isFavorite }))
+  );
+  const searchParams = useSearchParams();
+  console.log("searchParams", searchParams?.toString());
+  const pathname = usePathname();
+  console.log("pathname", pathname);
+  const params = useParams();
+  console.log("params", params);
+  // const router = useRouter();
+  // console.log("router", router.query);
+
+  const toggleFavorite = (cityId: number) => {
+    setCityFavorites((prev) =>
+      prev.map((fav) =>
+        fav.id === cityId ? { ...fav, isFavorite: !fav.isFavorite } : fav
+      )
+    );
+  };
 
   const getCityWithFavoriteStatus = (city: City) => {
     const favoriteStatus = cityFavorites.find((fav) => fav.id === city.id);
     return { ...city, isFavorite: favoriteStatus?.isFavorite || false };
   };
 
+  useEffect(() => {
+    if (headerRef.current) {
+      let current: any = headerRef.current;
+      while (current && !current.shadowRoot) {
+        current = current.parentNode?.host || current.parentNode;
+      }
+      const shadowRoot = current?.shadowRoot;
+      console.log("Header shadowRoot:", shadowRoot);
+    }
+  }, [headerRef.current]);
+
   return (
-    <div className="flex items-center">
+    <div className="flex items-center" ref={headerRef}>
       <Popover open={citySearchOpen} onOpenChange={setCitySearchOpen}>
         <PopoverTrigger asChild>
           <Button variant="outline" className="w-72 lg:w-80 justify-between">
@@ -62,7 +80,7 @@ export function CitySelector({
                   className="h-4 w-4 p-0 hover:bg-transparent"
                   onClick={(e) => {
                     e.stopPropagation();
-                    onToggleFavorite(selectedCity.id);
+                    toggleFavorite(selectedCity.id);
                   }}
                 >
                   <Star
@@ -87,7 +105,7 @@ export function CitySelector({
                       <CommandItem
                         key={city.id}
                         onSelect={() => {
-                          onCitySelect(city);
+                          setSelectedCity(city);
                           setCitySearchOpen(false);
                         }}
                         className="flex items-center justify-between p-3"
@@ -115,7 +133,7 @@ export function CitySelector({
                             className="h-6 w-6 p-0"
                             onClick={(e) => {
                               e.stopPropagation();
-                              onToggleFavorite(city.id);
+                              toggleFavorite(city.id);
                             }}
                           >
                             <Star
