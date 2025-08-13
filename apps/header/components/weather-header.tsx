@@ -39,6 +39,7 @@ import {
   Globe,
   Thermometer,
 } from "lucide-react";
+import { PopoverPortal } from "@radix-ui/react-popover";
 
 // Mock data for cities with weather info
 const cities = [
@@ -218,61 +219,65 @@ export function WeatherHeader() {
                     <ChevronDown className="h-4 w-4" />
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-80 p-0">
-                  <Command>
-                    <CommandInput placeholder="Search by city name or zip code..." />
-                    <CommandList>
-                      <CommandEmpty>No cities found.</CommandEmpty>
-                      <CommandGroup>
-                        {cities.map((city) => {
-                          const cityWithFav = getCityWithFavoriteStatus(city);
-                          return (
-                            <CommandItem
-                              key={city.id}
-                              onSelect={() => {
-                                setSelectedCity(city);
-                                setCitySearchOpen(false);
-                              }}
-                              className="flex items-center justify-between p-3"
-                            >
-                              <div className="flex items-center space-x-3">
-                                <MapPin className="h-4 w-4 text-muted-foreground" />
-                                <div>
-                                  <div className="font-medium">{city.name}</div>
-                                  <div className="text-sm text-muted-foreground">
-                                    {city.zip}
+                <PopoverPortal container={headerRef.current}>
+                  <PopoverContent className="w-80 p-0">
+                    <Command>
+                      <CommandInput placeholder="Search by city name or zip code..." />
+                      <CommandList>
+                        <CommandEmpty>No cities found.</CommandEmpty>
+                        <CommandGroup>
+                          {cities.map((city) => {
+                            const cityWithFav = getCityWithFavoriteStatus(city);
+                            return (
+                              <CommandItem
+                                key={city.id}
+                                onSelect={() => {
+                                  setSelectedCity(city);
+                                  setCitySearchOpen(false);
+                                }}
+                                className="flex items-center justify-between p-3"
+                              >
+                                <div className="flex items-center space-x-3">
+                                  <MapPin className="h-4 w-4 text-muted-foreground" />
+                                  <div>
+                                    <div className="font-medium">
+                                      {city.name}
+                                    </div>
+                                    <div className="text-sm text-muted-foreground">
+                                      {city.zip}
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div className="flex items-center space-x-2">
-                                <div className="flex items-center space-x-1 text-sm">
-                                  <city.icon className="h-4 w-4" />
-                                  <span>{city.temp}°</span>
-                                  <span className="text-muted-foreground">
-                                    {city.condition}
-                                  </span>
+                                <div className="flex items-center space-x-2">
+                                  <div className="flex items-center space-x-1 text-sm">
+                                    <city.icon className="h-4 w-4" />
+                                    <span>{city.temp}°</span>
+                                    <span className="text-muted-foreground">
+                                      {city.condition}
+                                    </span>
+                                  </div>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    className="h-6 w-6 p-0"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      toggleFavorite(city.id);
+                                    }}
+                                  >
+                                    <Star
+                                      className={`h-4 w-4 ${cityWithFav.isFavorite ? "fill-yellow-400 text-yellow-400" : "text-muted-foreground"}`}
+                                    />
+                                  </Button>
                                 </div>
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  className="h-6 w-6 p-0"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    toggleFavorite(city.id);
-                                  }}
-                                >
-                                  <Star
-                                    className={`h-4 w-4 ${cityWithFav.isFavorite ? "fill-yellow-400 text-yellow-400" : "text-muted-foreground"}`}
-                                  />
-                                </Button>
-                              </div>
-                            </CommandItem>
-                          );
-                        })}
-                      </CommandGroup>
-                    </CommandList>
-                  </Command>
-                </PopoverContent>
+                              </CommandItem>
+                            );
+                          })}
+                        </CommandGroup>
+                      </CommandList>
+                    </Command>
+                  </PopoverContent>
+                </PopoverPortal>
               </Popover>
             </div>
 
