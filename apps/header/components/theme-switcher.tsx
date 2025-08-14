@@ -13,7 +13,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function ThemeSwitcher() {
-  const { setTheme } = useTheme();
+  const { setTheme: setThemeRemote } = useTheme();
+
+  const setTheme = (theme: string) => {
+    console.log("setTheme", theme);
+    debugger;
+    setThemeRemote(theme);
+  };
 
   return (
     <DropdownMenu>

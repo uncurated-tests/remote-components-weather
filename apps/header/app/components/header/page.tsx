@@ -5,16 +5,16 @@ import { Suspense } from "react";
 
 export default function Header() {
   return (
-    <RemoteComponent>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-        storageKey="weather-app-theme"
-      >
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+      storageKey="weather-app-theme"
+    >
+      <RemoteComponent>
         <WeatherHeader />
-      </ThemeProvider>
-    </RemoteComponent>
+      </RemoteComponent>
+    </ThemeProvider>
   );
 }
