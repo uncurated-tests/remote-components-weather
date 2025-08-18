@@ -14,4 +14,6 @@ const nextConfig = {
   },
 };
 
-export default withRemoteComponents(withMicrofrontends(nextConfig));
+export default withRemoteComponents(withMicrofrontends(nextConfig), {
+  shared: ["next-themes"],
+});
