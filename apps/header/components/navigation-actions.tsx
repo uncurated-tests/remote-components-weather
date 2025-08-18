@@ -1,4 +1,4 @@
-import { Link } from "@vercel/microfrontends/next/client";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeSwitcher } from "./theme-switcher";
 import { LogIn } from "lucide-react";
