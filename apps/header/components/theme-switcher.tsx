@@ -13,13 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function ThemeSwitcher() {
-  const { setTheme: setThemeRemote } = useTheme();
-
-  const setTheme = (theme: string) => {
-    console.log("setTheme", theme);
-    debugger;
-    setThemeRemote(theme);
-  };
+  const { theme, setTheme } = useTheme();
 
   return (
     <DropdownMenu>
@@ -27,10 +21,16 @@ export function ThemeSwitcher() {
         <Button
           variant="outline"
           size="sm"
-          className="bg-white/10 dark:bg-black/20 backdrop-blur-sm border-white/20 dark:border-white/10 text-white dark:text-white hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-300 shadow-lg"
+          className="bg-white/10 dark:bg-black/20 backdrop-blur-sm border-white/20 dark:border-white/10 text-black dark:text-white hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-300 shadow-lg"
         >
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <Sun
+            className="h-[1.2rem] w-[1.2rem] dark:opacity-100"
+            style={{ opacity: theme === "dark" ? 0 : 1 }}
+          />
+          <Moon
+            className="absolute h-[1.2rem] w-[1.2rem] dark:opacity-0"
+            style={{ opacity: theme === "dark" ? 1 : 0 }}
+          />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
