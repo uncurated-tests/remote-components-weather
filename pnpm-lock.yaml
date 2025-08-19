@@ -159,8 +159,8 @@ importers:
         specifier: 2.15.4
         version: 2.15.4(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       remote-components:
-        specifier: ^0.0.10
-        version: 0.0.10(next@15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: ^0.0.12
+        version: 0.0.12(next@15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       sonner:
         specifier: ^1.7.4
         version: 1.7.4(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -343,8 +343,8 @@ importers:
         specifier: 2.15.4
         version: 2.15.4(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       remote-components:
-        specifier: ^0.0.10
-        version: 0.0.10(next@15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: ^0.0.12
+        version: 0.0.12(next@15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       sonner:
         specifier: ^1.7.4
         version: 1.7.4(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -2196,8 +2196,8 @@ packages:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  remote-components@0.0.10:
-    resolution: {integrity: sha512-G1PaeLwNzRQ0wOIX1acrfKxFVuT0bZFhYucO/FXO5qpAk8W6kjhxMRSj17iuhBkO2FXtD4K6N/zHJXlcgxSAGg==}
+  remote-components@0.0.12:
+    resolution: {integrity: sha512-1pDo8/+VvxbG6jI30oULHybWKqHKss5Ajj54IcmofkHzJg+iVaNzTDdZRf/+6v+SUlRX2vw10w6gOc6KvIliug==}
     peerDependencies:
       next: '>=15'
       react: ^19
@@ -4179,7 +4179,7 @@ snapshots:
       tiny-invariant: 1.3.3
       victory-vendor: 36.9.2
 
-  remote-components@0.0.10(next@15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  remote-components@0.0.12(next@15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
       enhanced-resolve: 5.18.3
       find-up: 7.0.0
